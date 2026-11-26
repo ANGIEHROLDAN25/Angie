@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional | Angie Paola Hernandez Roldan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* Azul corporativo */
+            --secondary-color: #2563eb; /* Azul vibrante */
+            --accent-color: #10b981; /* Verde esmeralda */
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header-info h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .header-info .role {
+            font-size: 1.15rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .contact-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        a.badge:hover {
+            background: rgba(255, 255, 255, 0.28);
+        }
+
+        /* Botón de descarga PDF */
+        .btn-download {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-download:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        /* Tarjetas de Sección */
+        section {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        /* Experiencia y Educación */
+        .timeline-item {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -7.5px;
+            top: 6px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.15rem;
+            color: var(--text-main);
+        }
+
+        .timeline-item .institution {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* Grid de Proyectos (Pasado, Presente, Futuro) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            background: #f8fafc;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .tag-past { background-color: #e2e8f0; color: #475569; }
+        .tag-present { background-color: #dbeafe; color: #1e40af; }
+        .tag-future { background-color: #d1fae5; color: #065f46; }
+
+        .project-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .lang-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 40px;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos exclusivos para impresión / exportación a PDF */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .container {
+                margin: 0;
+                max-width: 100%;
+                padding: 0;
+            }
+            .btn-download {
+                display: none !important;
+            }
+            header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                border-radius: 0;
+            }
+            section, .project-card {
+                box-shadow: none;
+                border: 1px solid #cbd5e1;
+                break-inside: avoid;
+            }
+            .tag, .badge, .lang-badge {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Encabezado -->
+        <header>
+            <div class="header-info">
+                <h1>Angie Paola Hernandez Roldan</h1>
+                <div class="role">Administradora Tecnológica (En formación - 7° Semestre)</div>
+                <div class="contact-badges">
+                    <span class="badge">📍 Sabaneta, Antioquia</span>
+                    <span class="badge">🎂 26 años</span>
+                    <span class="badge">✉️ angiehernandez275775@correo.it.edu.co</span>
+                    <a class="badge" href="https://www.linkedin.com/in/angie-hern%C3%A1ndez-rold%C3%A1n-61755b238" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
+                </div>
+            </div>
+            <button class="btn-download" onclick="window.print()">
+                📄 Descargar PDF
+            </button>
+        </header>
+
+        <!-- Perfil Profesional -->
+        <section>
+            <h2>Perfil Profesional</h2>
+            <p class="profile-text">
+                El Administrador Tecnológico del ITM es un ciudadano global que cuenta con formación integral, con cualidades éticas y de autonomía para su desarrollo profesional, con capacidad para planear, organizar, dirigir, controlar y evaluar los procesos de gestión del conocimiento, tecnología e innovación, alineándolos con la estrategia para el logro de los objetivos de las organizaciones en las que interviene, lo cual le permite tomar decisiones en contextos complejos, dinámicos e inciertos.
+            </p>
+        </section>
+
+        <!-- Experiencia y Formación -->
+        <section>
+            <h2>Experiencia Laboral y Formación</h2>
+            <div class="timeline-item">
+                <h3>Ingeniera en Automatización</h3>
+                <div class="institution">Proyectos de Automatización y Calidad</div>
+                <p>Creación de automatizaciones y revisión de calidad y testeo en diferentes proyectos.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Practicante - Tecnología en Gestión Administrativa</h3>
+                <div class="institution">Grupo Nutresa | Institución Universitaria ITM</div>
+                <p>Apoyo en procesos administrativos, optimización de recursos y gestión organizacional aplicando herramientas tecnológicas.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Administración Tecnológica (7° Semestre)</h3>
+                <div class="institution">Institución Universitaria ITM</div>
+                <p>Formación enfocada en gestión de la innovación, vigilancia tecnológica y dirección estratégica.</p>
+            </div>
+        </section>
+
+        <!-- Proyectos: Pasado, Presente y Futuro -->
+        <section>
+            <h2>Portafolio de Proyectos</h2>
+            <div class="projects-grid">
+                
+                <!-- Proyecto Pasado -->
+                <div class="project-card">
+                    <span class="tag tag-past">Pasado</span>
+                    <h3>Optimización Administrativa en Nutresa</h3>
+                    <p>Ejecución de prácticas profesionales de la Tecnología en Gestión Administrativa (ITM), logrando la mejora en flujos documentales y apoyo operativo dentro de la organización.</p>
+                </div>
+
+                <!-- Proyecto Presente -->
+                <div class="project-card">
+                    <span class="tag tag-present">Presente</span>
+                    <h3>Automatización, QA y Gestión Tecnológica</h3>
+                    <p>Creación de automatizaciones, revisión de calidad y testeo en diferentes proyectos, junto con formación de séptimo semestre en el ITM enfocada en innovación y estrategia.</p>
+                    <span class="lang-badge">🌐 Inglés Nivel B2</span>
+                </div>
+
+                <!-- Proyecto Futuro -->
+                <div class="project-card">
+                    <span class="tag tag-future">Futuro</span>
+                    <h3>Dirección de Proyectos Globales</h3>
+                    <p>Liderazgo en transformación digital, automatización y gestión del conocimiento en compañías multinacionales, aprovechando el dominio del idioma inglés (B2) para intervenir en mercados internacionales.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Angie Paola Hernandez Roldan · <a href="https://www.linkedin.com/in/angie-hern%C3%A1ndez-rold%C3%A1n-61755b238" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
